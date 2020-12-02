@@ -6,12 +6,14 @@ import { NgJhipsterModule } from 'ng-jhipster';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateModule } from '@ngx-translate/core';
+import { LayoutSectionModule } from 'app/core/admin-lte3/layout/section/section.module';
 
 @NgModule({
   exports: [
     FormsModule,
     CommonModule,
     NgbModule,
+    LayoutSectionModule,
     NgJhipsterModule,
     InfiniteScrollModule,
     FontAwesomeModule,
