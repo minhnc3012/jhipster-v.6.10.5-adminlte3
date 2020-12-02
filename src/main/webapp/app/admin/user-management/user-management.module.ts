@@ -7,9 +7,10 @@ import { UserManagementDetailComponent } from './user-management-detail.componen
 import { UserManagementUpdateComponent } from './user-management-update.component';
 import { UserManagementDeleteDialogComponent } from './user-management-delete-dialog.component';
 import { userManagementRoute } from './user-management.route';
+import { LayoutSectionModule } from '../../core/admin-lte3/layout/section/section.module';
 
 @NgModule({
-  imports: [JhiAdminLte3SharedModule, RouterModule.forChild(userManagementRoute)],
+  imports: [JhiAdminLte3SharedModule, LayoutSectionModule, RouterModule.forChild(userManagementRoute)],
   declarations: [
     UserManagementComponent,
     UserManagementDetailComponent,
