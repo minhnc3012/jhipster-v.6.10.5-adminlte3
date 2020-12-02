@@ -11,6 +11,4 @@ export const sidebarMenu = [
       { label: 'Buttons', route: '/ui-elements/buttons' },
     ],
   },
-  { label: 'DEMO', separator: true },
-  { label: 'User Management', route: 'user', iconClasses: 'fas fa-user' },
 ];

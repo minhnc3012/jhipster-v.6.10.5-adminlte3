@@ -61,7 +61,9 @@ export class MainComponent implements OnInit {
     }
     this.translateService.get(pageTitle).subscribe(title => this.titleService.setTitle(title));
   }
+
   logout(): void {}
+
   toggleMenuSidebar(): void {
     if (this.sidebarMenuOpened) {
       this.renderer.removeClass(document.body, 'sidebar-open');
@@ -73,6 +75,7 @@ export class MainComponent implements OnInit {
       this.sidebarMenuOpened = true;
     }
   }
+
   toggleControlSidebar(): void {
     if (this.sidebarControlOpened) {
       this.renderer.removeClass(document.body, 'control-sidebar-open');
