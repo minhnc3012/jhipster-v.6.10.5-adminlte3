@@ -10,4 +10,4 @@ import { RoutingService } from '../routing.service';
   declarations: [LayoutSectionComponent, LayoutSectionHeaderComponent, LayoutSectionContentComponent],
   providers: [RoutingService],
 })
-export class SectionModule {}
+export class LayoutSectionModule {}

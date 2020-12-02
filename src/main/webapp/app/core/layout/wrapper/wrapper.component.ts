@@ -2,6 +2,7 @@ import { Component, OnInit, Renderer2, OnDestroy } from '@angular/core';
 import { LayoutStore } from '../layout.store';
 import { removeSubscriptions } from '../helpers';
 import { Subscription } from 'rxjs';
+import { escapeRegExp } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'jhi-layout-wrapper',
@@ -10,7 +11,7 @@ import { Subscription } from 'rxjs';
 export class LayoutWrapperComponent implements OnInit, OnDestroy {
   private subscriptions?: Array<Subscription> = [];
   private layoutType?: string;
-  private currentClasses?: Array<string> = [];
+  private currentClasses: Array<string> = [];
   private currentAccentClass?: string;
 
   constructor(private renderer: Renderer2, private layoutStore: LayoutStore) {}
@@ -68,26 +69,26 @@ export class LayoutWrapperComponent implements OnInit, OnDestroy {
   }
 
   private applyBodyClasses(cssClasses: string | Array<string>): void {
+    let arrayClass: Array<string> = [];
     if (typeof cssClasses === 'string') {
-      cssClasses = cssClasses.split(' ');
+      arrayClass = cssClasses.split(' ');
+    } else {
+      arrayClass = cssClasses;
     }
 
     // Remove only classes that are not in cssClasses
-    const classesToRemove = this.currentClasses?.filter((x: string) => cssClasses?.includes(x));
-    classesToRemove?.forEach(cssClasse => {
-      if (cssClasse) {
+    this.currentClasses.forEach((cssClasse: string) => {
+      if (!arrayClass.includes(cssClasse)) {
         this.renderer.removeClass(document.body, cssClasse);
       }
     });
 
     // Add only classes that are not in currentClasses
-    const classesToAdd = cssClasses?.filter((x: string) => this.currentClasses?.includes(x));
-    classesToAdd.forEach(cssClasse => {
-      if (cssClasse) {
+    arrayClass.forEach((cssClasse: string) => {
+      if (!this.currentClasses.includes(cssClasse)) {
         this.renderer.addClass(document.body, cssClasse);
       }
     });
-
     // Update current classes for futur updates
     this.currentClasses = [...cssClasses];
   }

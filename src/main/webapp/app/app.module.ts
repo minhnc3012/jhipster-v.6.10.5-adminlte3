@@ -21,15 +21,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    LayoutModule,
+    LayoutModule.forRoot(layoutConfig),
     JhiAdminLte3SharedModule,
     JhiAdminLte3CoreModule,
     JhiAdminLte3HomeModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     JhiAdminLte3EntityModule,
     JhiAdminLte3AppRoutingModule,
-    LayoutModule,
-    LayoutModule.forRoot(layoutConfig),
-    BrowserAnimationsModule,
   ],
   declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
   bootstrap: [MainComponent],

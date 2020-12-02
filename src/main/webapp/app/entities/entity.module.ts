@@ -4,7 +4,18 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   imports: [
     RouterModule.forChild([
-      /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
+      {
+        path: 'dashboard',
+        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+      },
+      {
+        path: 'widgets',
+        loadChildren: () => import('./widgets/widgets.module').then(m => m.WidgetsModule),
+      },
+      {
+        path: 'ui-elements',
+        loadChildren: () => import('./ui-elements/ui-elements-routing.module').then(m => m.UIElementsRoutingModule),
+      },
     ]),
   ],
 })

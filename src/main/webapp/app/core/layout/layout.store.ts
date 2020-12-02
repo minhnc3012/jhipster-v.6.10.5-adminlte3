@@ -69,7 +69,7 @@ export class LayoutStore {
    * @return [description]
    */
   get type(): Observable<string> {
-    const pluckValue: any = pluck('type') || '';
+    const pluckValue: any = pluck('type');
     return this.layoutConfig.pipe(pluckValue, distinctUntilChanged());
   }
 

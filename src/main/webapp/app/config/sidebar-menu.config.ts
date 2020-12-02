@@ -8,15 +8,7 @@ export const sidebarMenu = [
     children: [
       { label: 'General', route: '/ui-elements/general' },
       { label: 'Incons', route: '/ui-elements/icons' },
-      {
-        label: 'Buttons',
-        iconClasses: 'fas fa-tree',
-        children: [
-          { label: 'General', route: '/ui-elements/general' },
-          { label: 'Incons', route: '/ui-elements/icons' },
-          { label: 'Buttons', route: '/ui-elements/buttons' },
-        ],
-      },
+      { label: 'Buttons', route: '/ui-elements/buttons' },
     ],
   },
   { label: 'DEMO', separator: true },
