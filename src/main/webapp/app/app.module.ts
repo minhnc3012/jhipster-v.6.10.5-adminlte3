@@ -14,6 +14,9 @@ import { FooterComponent } from './layouts/footer/footer.component';
 import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ActiveMenuDirective } from './layouts/navbar/active-menu.directive';
 import { ErrorComponent } from './layouts/error/error.component';
+import { LayoutModule } from './core/layout/layout.module';
+import { layoutConfig } from './config/layout.config';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
@@ -24,6 +27,9 @@ import { ErrorComponent } from './layouts/error/error.component';
     // jhipster-needle-angular-add-module JHipster will add new module here
     JhiAdminLte3EntityModule,
     JhiAdminLte3AppRoutingModule,
+    LayoutModule,
+    LayoutModule.forRoot(layoutConfig),
+    BrowserAnimationsModule,
   ],
   declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
   bootstrap: [MainComponent],
