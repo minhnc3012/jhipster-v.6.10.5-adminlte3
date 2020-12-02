@@ -12,7 +12,7 @@ import {
   OnDestroy,
 } from '@angular/core';
 import { NavigationEnd, RouterEvent } from '@angular/router';
-import { RoutingService } from '../routing.service';
+import { RoutingService } from '../../routing.service';
 import { removeSubscriptions } from '../../helpers';
 import { LayoutStore } from '../layout.store';
 import { Subscription } from 'rxjs';

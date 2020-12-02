@@ -10,7 +10,7 @@ import { LayoutContentModule } from './content/content.module';
 import { LayoutHeaderModule } from './header/header.module';
 import { LayoutFooterModule } from './footer/footer.module';
 import { LayoutMainSidebarModule } from './main-sidebar/main-sidebar.module';
-import { RoutingService } from './routing.service';
+import { RoutingService } from '../routing.service';
 
 @NgModule({
   declarations: [],

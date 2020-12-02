@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, ChangeDetectorRef, Input, OnDestroy } from '@angular/core';
 import { Router, PRIMARY_OUTLET, RouterEvent, NavigationEnd } from '@angular/router';
-import { RoutingService } from '../routing.service';
+import { RoutingService } from '../../routing.service';
 import { removeSubscriptions } from '../../helpers';
 import { LayoutStore } from '../layout.store';
 import { LayoutOptions } from '../layout.config';

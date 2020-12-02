@@ -24,7 +24,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     BrowserAnimationsModule,
     NgbModule,
-    LayoutModule,
     LayoutModule.forRoot(layoutConfig),
     JhiAdminLte3SharedModule,
     JhiAdminLte3CoreModule,
