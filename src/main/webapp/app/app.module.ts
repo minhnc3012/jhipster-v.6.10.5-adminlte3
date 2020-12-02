@@ -14,14 +14,16 @@ import { FooterComponent } from './layouts/footer/footer.component';
 import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ActiveMenuDirective } from './layouts/navbar/active-menu.directive';
 import { ErrorComponent } from './layouts/error/error.component';
-import { LayoutModule } from './core/layout/layout.module';
+import { LayoutModule } from './core/admin-lte3/layout/layout.module';
 import { layoutConfig } from './config/layout.config';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    NgbModule,
     LayoutModule,
     LayoutModule.forRoot(layoutConfig),
     JhiAdminLte3SharedModule,

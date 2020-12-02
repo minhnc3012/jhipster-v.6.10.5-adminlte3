@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GeneralRoutingModule } from './general-routing.module';
 import { GeneralComponent } from './general.component';
-import { LayoutSectionModule } from '../../../core/layout/section/section.module';
+import { LayoutSectionModule } from '../../../core/admin-lte3/layout/section/section.module';
 
 @NgModule({
   imports: [CommonModule, GeneralRoutingModule, LayoutSectionModule],

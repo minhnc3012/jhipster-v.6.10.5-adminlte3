@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { LayoutOptions } from '../layout.config';
 import { LayoutStore } from '../layout.store';
-import { removeSubscriptions } from '../helpers';
+import { removeSubscriptions } from '../../helpers';
 import { Subscription } from 'rxjs';
 
 @Component({

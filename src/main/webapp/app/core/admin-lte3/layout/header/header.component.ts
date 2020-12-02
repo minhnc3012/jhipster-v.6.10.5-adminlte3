@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter, ViewChild, TemplateRef, Conten
 import { FormGroup, FormControl } from '@angular/forms';
 import { BrightnessColor, LayoutOptions } from '../layout.config';
 import { LayoutStore } from '../layout.store';
-import { removeSubscriptions } from '../helpers';
+import { removeSubscriptions } from '../../helpers';
 import { Subscription } from 'rxjs';
 
 /**

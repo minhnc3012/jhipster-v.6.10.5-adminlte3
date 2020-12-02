@@ -11,7 +11,7 @@ import {
   OnDestroy,
 } from '@angular/core';
 import { LayoutStore } from '../layout.store';
-import { removeSubscriptions } from '../helpers';
+import { removeSubscriptions } from '../../helpers';
 import { LayoutOptions } from '../layout.config';
 import { Subscription } from 'rxjs';
 
