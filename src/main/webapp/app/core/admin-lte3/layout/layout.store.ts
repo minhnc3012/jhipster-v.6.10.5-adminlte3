@@ -1,16 +1,14 @@
+import { Injectable, Optional } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { distinctUntilChanged, pluck } from 'rxjs/operators';
 import { LayoutConfig, LayoutOptions } from './layout.config';
 
-/*
- *
- */
+@Injectable({ providedIn: 'root' })
 export class LayoutStore {
-  public readonly layoutConfig: Observable<LayoutConfig>;
+  public readonly observable: Observable<LayoutConfig>;
+  private behaviorSubject: BehaviorSubject<LayoutConfig>;
 
-  // tslint:disable-next-line:variable-name
-  private _layoutConfig: BehaviorSubject<LayoutConfig>;
-  private readonly initialLayoutConfig: LayoutConfig = {
+  private readonly layoutConfig: LayoutConfig = {
     logo: '',
     appName: 'Appication',
     type: 'sidebar-mini layout-fixed layout-navbar-fixed',
@@ -40,17 +38,17 @@ export class LayoutStore {
    * @method constructor
    * @param layoutConfig [description]
    */
-  constructor(layoutConfig: LayoutConfig) {
+  constructor(@Optional() layoutConfig?: LayoutConfig) {
     if (layoutConfig) {
-      this.initialLayoutConfig = Object.assign(this.initialLayoutConfig, layoutConfig);
+      this.layoutConfig = Object.assign(this.layoutConfig, layoutConfig);
     }
-    this._layoutConfig = new BehaviorSubject(this.initialLayoutConfig);
-    this.layoutConfig = this._layoutConfig.asObservable();
+    this.behaviorSubject = new BehaviorSubject(this.layoutConfig);
+    this.observable = this.behaviorSubject.asObservable();
   }
 
   get logo(): Observable<string> {
     const pluckValue: any = pluck('logo') || '';
-    return this.layoutConfig.pipe(pluckValue, distinctUntilChanged());
+    return this.observable.pipe(pluckValue, distinctUntilChanged());
   }
 
   /**
@@ -60,7 +58,7 @@ export class LayoutStore {
    */
   get appName(): Observable<string> {
     const pluckValue: any = pluck('appName') || '';
-    return this.layoutConfig.pipe(pluckValue, distinctUntilChanged());
+    return this.observable.pipe(pluckValue, distinctUntilChanged());
   }
 
   /**
@@ -70,7 +68,7 @@ export class LayoutStore {
    */
   get type(): Observable<string> {
     const pluckValue: any = pluck('type');
-    return this.layoutConfig.pipe(pluckValue, distinctUntilChanged());
+    return this.observable.pipe(pluckValue, distinctUntilChanged());
   }
 
   /**
@@ -80,7 +78,7 @@ export class LayoutStore {
    */
   get layoutOptions(): Observable<LayoutOptions> {
     const pluckValue: any = pluck('layoutOptions') || {};
-    return this.layoutConfig.pipe(pluckValue, distinctUntilChanged());
+    return this.observable.pipe(pluckValue, distinctUntilChanged());
   }
 
   /**
@@ -89,7 +87,7 @@ export class LayoutStore {
    * @param value [description]
    */
   public setLogo(value: string): void {
-    this._layoutConfig.next(Object.assign(this._layoutConfig.value, { logo: value }));
+    this.behaviorSubject.next(Object.assign(this.behaviorSubject.value, { logo: value }));
   }
 
   /**
@@ -98,7 +96,7 @@ export class LayoutStore {
    * @param value [description]
    */
   public setAppName(value: string): void {
-    this._layoutConfig.next(Object.assign(this._layoutConfig.value, { appName: value }));
+    this.behaviorSubject.next(Object.assign(this.behaviorSubject.value, { appName: value }));
   }
 
   /**
@@ -107,7 +105,7 @@ export class LayoutStore {
    * @param value [description]
    */
   public setType(value: string): void {
-    this._layoutConfig.next(Object.assign(this._layoutConfig.value, { type: value }));
+    this.behaviorSubject.next(Object.assign(this.behaviorSubject.value, { type: value }));
   }
 
   /**
@@ -116,6 +114,6 @@ export class LayoutStore {
    * @param value [description]
    */
   public setLayoutOptions(value: LayoutOptions): void {
-    this._layoutConfig.next(Object.assign(this._layoutConfig.value, { layoutOptions: value }));
+    this.behaviorSubject.next(Object.assign(this.behaviorSubject.value, { layoutOptions: value }));
   }
 }

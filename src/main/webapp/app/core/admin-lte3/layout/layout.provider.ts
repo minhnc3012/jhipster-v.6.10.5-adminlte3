@@ -15,6 +15,7 @@ export function LayoutStoreFactory(layoutConfig: LayoutConfig): LayoutStore {
 }
 
 /**
+ * link : https://angular.io/api/core/FactoryProvider
  * [layoutProvider description]
  */
 export function layoutProvider(layoutConfig: LayoutConfig): any {

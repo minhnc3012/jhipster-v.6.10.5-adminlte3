@@ -20,7 +20,7 @@ export class LayoutFooterComponent implements OnInit, OnDestroy {
    */
   ngOnInit(): void {
     this.subscriptions?.push(
-      this.layoutStore.layoutOptions.subscribe(layoutOptions => {
+      this.layoutStore?.layoutOptions.subscribe(layoutOptions => {
         this.layoutOptions = Object.assign({}, layoutOptions);
       })
     );

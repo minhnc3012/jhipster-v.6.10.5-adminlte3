@@ -60,7 +60,7 @@ export class SidebarMenuComponent implements OnInit, AfterViewInit, OnDestroy {
       })
     );
     this.subscriptions?.push(
-      this.layoutStore.layoutOptions.subscribe(layoutOptions => {
+      this.layoutStore?.layoutOptions.subscribe(layoutOptions => {
         this.layoutOptions = Object.assign({}, layoutOptions);
       })
     );

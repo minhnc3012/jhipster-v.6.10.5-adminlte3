@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LayoutConfig } from './layout.config';
-import { layoutProvider } from './layout.provider';
+// import { layoutProvider } from './layout.provider.ts';
 import { LayoutService } from './layout.service';
 // import { RoutingService } from "./routing.service";
 import { LayoutWrapperModule } from './wrapper/wrapper.module';
@@ -11,6 +11,7 @@ import { LayoutHeaderModule } from './header/header.module';
 import { LayoutFooterModule } from './footer/footer.module';
 import { LayoutMainSidebarModule } from './main-sidebar/main-sidebar.module';
 import { RoutingService } from '../routing.service';
+import { LayoutStore } from './layout.store';
 
 @NgModule({
   declarations: [],
@@ -38,7 +39,8 @@ export class LayoutModule {
   static forRoot(layoutConfig: LayoutConfig): ModuleWithProviders<LayoutModule> {
     return {
       ngModule: LayoutModule,
-      providers: [...layoutProvider(layoutConfig), LayoutService],
+      providers: [{ provide: LayoutConfig, useValue: layoutConfig }, LayoutStore, LayoutService],
+      // providers: [...layoutProvider(layoutConfig), LayoutService],
     };
   }
 }

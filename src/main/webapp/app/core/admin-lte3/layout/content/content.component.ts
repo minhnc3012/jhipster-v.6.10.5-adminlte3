@@ -14,7 +14,7 @@ export class LayoutContenComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscriptions?.push(
-      this.layoutStore.layoutOptions.subscribe(layoutOptions => {
+      this.layoutStore?.layoutOptions.subscribe(layoutOptions => {
         if (layoutOptions.isNoNavbarBorder) {
           this.marginTop = 'margin-top: calc(3.5rem - 10px);';
         } else {

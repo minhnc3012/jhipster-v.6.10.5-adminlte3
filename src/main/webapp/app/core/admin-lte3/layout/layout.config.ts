@@ -1,11 +1,11 @@
-export interface LayoutConfig {
+export class LayoutConfig {
   logo?: string;
   appName?: string;
   type?: string;
   layoutOptions?: LayoutOptions;
 }
 
-export interface LayoutOptions {
+export class LayoutOptions {
   sidebarMenuOpened?: boolean;
   sidebarControlOpened?: boolean;
   isNoNavbarBorder?: boolean;
@@ -22,14 +22,14 @@ export interface LayoutOptions {
   colorVariants?: ColorVariants;
 }
 
-export interface ColorVariants {
+export class ColorVariants {
   navbar?: BrightnessColor;
   menuSidebar?: string;
   accent?: string;
   brandLogo?: string;
 }
 
-export interface BrightnessColor {
+export class BrightnessColor {
   brightness?: string;
   color?: string;
 }

@@ -28,12 +28,5 @@ export class LayoutService {
       this.customLayout = e.snapshot.data.customLayout;
       this.isCustomLayout.next(!!this.customLayout);
     });
-
-    // this.router.events.subscribe((event: Event): event is RouterEvent => event instanceof ActivationStart {
-    //   if (event instanceof ActivationStart) {
-    //     this.customLayout = event.snapshot.data.customLayout;
-    //     this.isCustomLayout.next(!!this.customLayout);
-    //   }
-    // });
   }
 }

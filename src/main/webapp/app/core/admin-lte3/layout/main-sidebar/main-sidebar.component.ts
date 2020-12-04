@@ -73,7 +73,7 @@ export class LayoutMainSidebarComponent implements OnInit, AfterViewInit, OnDest
       })
     );
     this.subscriptions?.push(
-      this.layoutStore.layoutOptions.subscribe(layoutOptions => {
+      this.layoutStore?.layoutOptions.subscribe(layoutOptions => {
         if (layoutOptions.colorVariants && layoutOptions.colorVariants.menuSidebar) {
           this.skin = layoutOptions.colorVariants.menuSidebar;
         } else {

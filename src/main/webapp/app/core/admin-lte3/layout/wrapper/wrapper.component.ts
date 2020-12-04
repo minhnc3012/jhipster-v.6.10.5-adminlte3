@@ -2,7 +2,6 @@ import { Component, OnInit, Renderer2, OnDestroy } from '@angular/core';
 import { LayoutStore } from '../layout.store';
 import { removeSubscriptions } from '../../helpers';
 import { Subscription } from 'rxjs';
-import { escapeRegExp } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'jhi-layout-wrapper',
@@ -27,7 +26,7 @@ export class LayoutWrapperComponent implements OnInit, OnDestroy {
     );
 
     this.subscriptions?.push(
-      this.layoutStore.layoutOptions.subscribe(layoutOptions => {
+      this.layoutStore?.layoutOptions.subscribe(layoutOptions => {
         if (!layoutOptions.sidebarMenuOpened) {
           this.renderer.removeClass(document.body, 'sidebar-open');
           this.renderer.addClass(document.body, 'sidebar-collapse');

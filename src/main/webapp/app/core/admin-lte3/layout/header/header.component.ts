@@ -55,7 +55,7 @@ export class LayoutHeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscriptions?.push(
-      this.layoutStore.layoutOptions.subscribe(layoutOptions => {
+      this.layoutStore?.layoutOptions.subscribe(layoutOptions => {
         if (layoutOptions.colorVariants && layoutOptions.colorVariants?.navbar) {
           this.skin = layoutOptions.colorVariants.navbar;
         } else {

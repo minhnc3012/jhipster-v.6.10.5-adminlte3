@@ -1,4 +1,6 @@
-export const layoutConfig = {
+import { LayoutConfig } from 'app/core/admin-lte3/layout/layout.config';
+
+export const layoutConfig: LayoutConfig = {
   logo: 'content/images/AdminLTELogo.png',
   appName: 'Auto Test',
   type: 'sidebar-mini layout-fixed layout-navbar-fixed',
