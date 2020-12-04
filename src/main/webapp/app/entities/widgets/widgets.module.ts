@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { WidgetsComponent } from './widgets.component';
 import { WidgetsRoutingModule } from './widgets-routing.module';
-import { LayoutSectionModule } from '../../core/admin-lte3/layout/section/section.module';
+import { JhiAdminLte3SharedLibsModule } from 'app/shared/shared-libs.module';
 
 @NgModule({
-  imports: [CommonModule, LayoutSectionModule, WidgetsRoutingModule],
+  imports: [JhiAdminLte3SharedLibsModule, WidgetsRoutingModule],
   declarations: [WidgetsComponent],
 })
 export class WidgetsModule {}

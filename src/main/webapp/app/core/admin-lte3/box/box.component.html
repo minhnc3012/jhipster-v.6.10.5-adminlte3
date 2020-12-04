@@ -1,0 +1,72 @@
+
+<div *ngIf="!removed" class="card card-primary" [class.collapsed-card]="isCollapsed && !isCollaping" [class.box-solid]="isSolid" [jhiCollapseAnimation]="remove" (jhiCollapseAnimation.done)="removedDone($event)">
+  <div class="card-header">
+    <h3 class="card-title">Expandable</h3>
+
+    <div class="card-tools pull-right">
+      <ng-content select="jhi-box-tools"></ng-content>
+      <button *ngIf="isCollapsable" type="button" class="btn btn-tool" #toggleButtonElement>
+        <i class="fa" [ngClass]="{'fa-plus': isCollapsed, 'fa-minus': !isCollapsed}"></i>
+      </button>
+      <button *ngIf="isRemovable" type="button" class="btn btn-tool" #removeButtonElement>
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <!-- /.card-tools -->
+  </div>
+  <!-- /.card-header -->
+  <div [ngClass]="contentStyleClass" [jhiFontColor]="contentColor" [jhiCollapseAnimation]="isCollapsed" (jhiCollapseAnimation.start)="onCollapseStart($event)" (jhiCollapseAnimation.done)="onCollapseDone($event)">
+    <div class="card-body">
+      <ng-container *ngIf="boxHeaderDirective || boxContentDirective || boxFooterDirective || boxToolsDirective; else noDirective">
+        <ng-content select="jhi-box-content"></ng-content>
+      </ng-container>
+      <ng-template #noDirective>
+        <ng-content></ng-content>
+      </ng-template>
+    </div>
+    <div *ngIf="footer || boxFooterDirective" [ngClass]="footerStyleClass" [jhiFontColor]="footerColor">
+      {{footer}}
+      <ng-content select="jhi-box-footer"></ng-content>
+    </div>
+  </div>
+  <div *ngIf="isLoading" class="overlay">
+    <i [ngClass]="loadingStyleClass" [jhiFontColor]="loadingColor"></i>
+  </div>
+  <!-- /.card-body -->
+</div>
+<!--
+<div *ngIf="!removed" [jhiColor]="boxColor" jhiColorProperty="border-color" jhiColorPrefix="box" [ngClass]="styleClass" [class.collapsed-box]="isCollapsed && !isCollaping" [class.box-solid]="isSolid" [jhiCollapseAnimation]="remove" (jhiCollapseAnimation.done)="removedDone($event)">
+  <div *ngIf="header || boxHeaderDirective" [ngClass]="headerStyleClass" [jhiColor]="boxColor" [jhiColorCondition]="isSolid" jhiColorProperty="background-color" [class.with-border]="headerBorder">
+    <h3 class="box-title" [jhiFontColor]="headerColor">
+      {{header}}
+      <ng-content select="jhi-box-header"></ng-content>
+    </h3>
+    <div class="box-tools pull-right">
+      <ng-content select="jhi-box-tools"></ng-content>
+      <button *ngIf="isCollapsable" type="button" [ngClass]="buttonsStyleClass" #toggleButtonElement>
+        <i class="fa" [ngClass]="{'fa-plus': isCollapsed, 'fa-minus': !isCollapsed}"></i>
+      </button>
+      <button *ngIf="isRemovable" type="button" [ngClass]="buttonsStyleClass" #removeButtonElement>
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+  </div>
+  <div [ngClass]="contentStyleClass" [jhiFontColor]="contentColor" [jhiCollapseAnimation]="isCollapsed" (jhiCollapseAnimation.start)="onCollapseStart($event)" (jhiCollapseAnimation.done)="onCollapseDone($event)">
+    <div class="box-body">
+      <ng-container *ngIf="boxHeaderDirective || boxContentDirective || boxFooterDirective || boxToolsDirective; else noDirective">
+        <ng-content select="jhi-box-content"></ng-content>
+      </ng-container>
+      <ng-template #noDirective>
+        <ng-content></ng-content>
+      </ng-template>
+    </div>
+    <div *ngIf="footer || boxFooterDirective" [ngClass]="footerStyleClass" [jhiFontColor]="footerColor">
+      {{footer}}
+      <ng-content select="jhi-box-footer"></ng-content>
+    </div>
+  </div>
+  <div *ngIf="isLoading" class="overlay">
+    <i [ngClass]="loadingStyleClass" [jhiFontColor]="loadingColor"></i>
+  </div>
+</div>
+-->

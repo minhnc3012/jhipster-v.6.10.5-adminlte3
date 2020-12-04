@@ -16,6 +16,10 @@ import { RouterModule } from '@angular/router';
         path: 'ui-elements',
         loadChildren: () => import('./ui-elements/ui-elements-routing.module').then(m => m.UIElementsRoutingModule),
       },
+      {
+        path: 'boxs',
+        loadChildren: () => import('./boxs/boxs-routing.module').then(m => m.BoxsRoutingModule),
+      },
     ]),
   ],
 })

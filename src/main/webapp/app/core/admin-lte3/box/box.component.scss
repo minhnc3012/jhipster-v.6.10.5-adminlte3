@@ -1,0 +1,18 @@
+.card.collapsed-box {
+  .card-body,
+  .card-footer {
+    display: inherit;
+  }
+}
+
+.card-solid {
+  border: 1px solid;
+}
+
+.card-body {
+  background-color: #fff;
+}
+
+.card.card-solid.bg-color > .card-header {
+  color: #fff;
+}
