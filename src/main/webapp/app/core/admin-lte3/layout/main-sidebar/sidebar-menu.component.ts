@@ -24,11 +24,12 @@ export type Items = Array<Item>;
 @Component({
   selector: 'jhi-sidebar-menu',
   templateUrl: './sidebar-menu.component.html',
+  styleUrls: ['./main-sidebar.component.scss'],
   animations: [
     trigger('expandCollapse', [
       state('open', style({ height: '100%', opacity: 1 })),
       state('closed', style({ height: 0, opacity: 0 })),
-      transition('* => *', animate('750ms')),
+      transition('* => *', animate('500ms')),
     ]),
   ],
 })

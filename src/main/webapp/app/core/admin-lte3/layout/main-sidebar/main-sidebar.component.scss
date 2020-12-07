@@ -1,7 +1,10 @@
-.main-sidebar {
-  height: 100vh;
-  overflow: auto;
-  .nav-treeview {
-    display: block;
+.nav-sidebar {
+  .menu-closed,
+  .menu-open {
+    > .nav-treeview {
+      &.ng-trigger-expandCollapse {
+        display: block !important;
+      }
+    }
   }
 }
