@@ -42,7 +42,6 @@ export class LayoutHeaderComponent implements OnInit, OnDestroy {
   @Input() useToggleControlSidebar = true;
 
   public layoutOptions!: LayoutOptions;
-  public searchForm?: FormGroup;
   public skin!: BrightnessColor;
   private subscriptions?: Array<Subscription> = [];
 
@@ -64,9 +63,6 @@ export class LayoutHeaderComponent implements OnInit, OnDestroy {
         this.layoutOptions = Object.assign({}, layoutOptions);
       })
     );
-    this.searchForm = new FormGroup({
-      search: new FormControl(null),
-    });
   }
 
   toggleMenuSidebarHandle(): void {

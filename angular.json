@@ -26,14 +26,7 @@
         }
       },
       "prefix": "",
-      "architect": {
-        "build": {
-          "options": {
-            "styles": ["node_modules/prismjs/themes/prism-tomorrow.css"],
-            "scripts": ["node_modules/prismjs/prism.js", "node_modules/prismjs/components/prism-typescript.js"]
-          }
-        }
-      }
+      "architect": {}
     }
   },
   "defaultProject": "jhi-admin-lte-3",
